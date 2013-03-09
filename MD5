@@ -1,0 +1,14 @@
+c3d0b6818f08fe21fc4f0faa793a747f *CHANGES
+1b2df767055d82f16580e08f42af96d2 *DESCRIPTION
+5fa11616246c8a7ed8c4f1b00054aea3 *NAMESPACE
+fc15c10e493c446517ba6dc7e06a37be *R/gains.R
+539f37bbf873dcb6030f9da291d82c4f *R/plot.gains.R
+c943aef2330d7293966116e1dd72f936 *R/print.gains.R
+9831cd544fde250d33ce98f10fb23e9d *data/ciaScores.txt.gz
+28db34928f907ddeb4de100015146d0c *man/ciaScores.Rd
+71b75a868834d3b66506915518799f6f *man/gains.Rd
+c36655593476389b2c32c66a02129671 *man/plot.gains.Rd
+2f03ebe755828f8240d72471f1e3b9f5 *man/print.gains.Rd
+b07cd7ab3347cebefdd9707e392fdcb6 *tests/gains.R
+f73c13171fcbb1b59a78d8a1910d421e *tests/gains.Rout
+d921386680376d09b5221caee27a6f0d *tests/gains.Rout.save

@@ -1,0 +1,4 @@
+ 0.1-1  CAR 5-1-10 no changes yet, this is the first try at building the package
+ 0.2-1  CAR 5-6-10 added plot method, added cia.scores dataset, changed tests
+ 0.2-2  CAR 5-6-10 changed depth of file calculation
+ 0.3-1  CAR 5-7-10 made changes to ciaScores data (new models), added min.prediction and max.prediction to gains output

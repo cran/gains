@@ -1,0 +1,6 @@
+export(gains)
+export(print.gains)
+export(plot.gains)
+
+S3method(print, gains)
+S3method(plot, gains)
