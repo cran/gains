@@ -2,32 +2,27 @@
 \alias{plot.gains}
 \title{Plotting Gains Table Objects}
 \description{
-  Plot method for objects of class \code{gains}.
+  Plot method for objects of class \code{gains}. These plots are sometimes called lift charts.
 }
 \usage{
-\method{plot}{gains}(x, col1="darkred", col2="blue4", 
-                     xlab="Depth of File",
-                     ylab="Sample Mean Response",
-                     leg1="Mean Response",
-                     leg2="Cumulative Mean Response",
-                     type="b",
-                     pch1=1,pch2=1,
-                     lty1=1,lty2=1,
-                     main="Gains Table Plot",\dots)
+\method{plot}{gains}(x, y=NULL, xlab="Depth of File", ylab="Mean Response", 
+    type="b", col=c("red3","bisque4","blue4"), pch=c(1,1,1), lty=c(1,1,1),
+    legend=c(
+    "Mean Response","Cumulative Mean Response","Mean Predicted Response"),
+    ylim=c(min(c(x$mean.resp,x$mean.prediction)),
+    max(c(x$mean.resp,x$mean.prediction))), main="Gains Table Plot", ...)
 }
 \arguments{
   \item{x}{an object of class \code{gains}.}
-  \item{col1}{color to use for the series of mean response rates.}
-  \item{col2}{color to use for the series of cumulative mean response rates.}
+  \item{y}{included for compatability with the \code{plot} generic but is not used.}
   \item{xlab}{a title for the x axis.  See \code{title}.}
   \item{ylab}{a title for the y axis.  See \code{title}.}
-  \item{leg1}{label for the legend item corresponding to mean response rates.}
-  \item{leg2}{label for the legend item corresponding to cumulative mean response rates.}
-  \item{type}{what type of plot should be drawn.  The default is ``b'' for points and lines.}
-  \item{pch1}{plotting character to use for the series of mean response rates.}
-  \item{pch2}{plotting character to use for the series of cumulative mean response rates.}
-  \item{lty1}{line type to use for the series of mean response rates.}
-  \item{lty2}{line type to use for the series of cumulative mean response rates.}
+  \item{type}{what type of plot should be drawn.  The default is "b" for points and lines.}
+  \item{col}{vector of length 3 specifying the colors for the series of mean response rates, cumulative mean response rates, and mean predicted response rates, respectively.}
+  \item{pch}{vector of length 3 specifying the plotting characters for the series of mean response rates, cumulative mean response rates, and mean predicted response rates, respectively.}
+  \item{lty}{vector of length 3 specifying the line types for the series of mean response rates, cumulative mean response rates, and mean predicted response rates, respectively.}
+  \item{legend}{character or expression vector of length 3 specifying the legend descriptions for the series of mean response rates, cumulative mean response rates, and mean predicted response rates, respectively.}
+  \item{ylim}{the y limits of the plot.  See \code{plot.window}.}
   \item{main}{an overall title for the plot.  See \code{title}.}
   \item{\dots}{additional arguments to \code{plot}}.
 }
@@ -36,8 +31,8 @@
 }
 \examples{
 data(ciaScores)
-\dontrun{plot(gains(actual=ciaScores$CellPhonesPP[ciaScores$train==0],
-           predicted=ciaScores$PredOLS[ciaScores$train==0],
-     main="Test Gains Table Plot")}
+\dontrun{plot(with(subset(ciaScores,train==0), 
+      gains(actual=CellPhonesPP, predicted=PredOLS, optimal=TRUE)),
+      main="Test Gains Table Plot")}
 }
 \keyword{misc}

@@ -9,11 +9,11 @@
 \format{a data frame containing 194 rows and 8 columns.
 \itemize{
   \item CellPhonesPP: Number of cell phones per person, from the CIA Factbook.
-  \item PredOLS: Predicted response from an OLS regression with 14 predictors.
+  \item PredOLS: Predicted response from an OLS regression.
   \item PredLasso: Predicted response from a LASSO regression.
-  \item PredTree: Predicted response from a Regression Tree.
+  \item PredTree: Predicted response from a regression tree.
   \item PredRF: Predicted response from a Random Forest.
-  \item PredSM: Predicted response from an Additive Model with a smoother.
+  \item PredSM: Predicted response from an additive model.
   \item PredGLM: Predicted probability (from a logistic regression) that the country has more cell phones than people.
   \item train: Indicator, =1 if the country was among the set used to make the predictions, =0 if the country was in the validation set (not used to make predictions).
 }

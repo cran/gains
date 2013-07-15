@@ -1,31 +1,49 @@
-plot.gains<-function(x, col1="darkred", col2="blue4", 
+plot.gains<-function(x, y=NULL, 
                      xlab="Depth of File",
-                     ylab="Sample Mean Response",
-                     leg1="Mean Response",
-                     leg2="Cumulative Mean Response",
+                     ylab="Mean Response",
                      type="b",
-                     pch1=1,pch2=1,
-                     lty1=1,lty2=1,
-                     main="Gains Table Plot",...) 
+                     col=c("red3","bisque4","blue4"),
+                     pch=c(1,1,1),
+                     lty=c(1,1,1),
+                     legend=c("Mean Response","Cumulative Mean Response","Mean Predicted Response"),
+                     ylim=c(min(c(x$mean.resp,x$mean.prediction)),max(c(x$mean.resp,x$mean.prediction))),
+                     main="Gains Table Plot", ...) 
 {
+   for (i in 1:3) {
+     if (is.na(col[i])) {
+       col[i]=c("red3","bisque4","blue4")[i]
+     }
+     if (is.na(pch[i])) {
+       pch[i]=c(1,1,1)[i]
+     }     
+     if (is.na(lty[i])) {
+       lty[i]=c(1,1,1)[i]
+     }
+     if (is.na(legend[i])) {
+       legend[i]=c("Mean Response","Cumulative Mean Response","Mean Predicted Response")[i]
+     }
+   }
+
    if (x$percents==TRUE) {
-     plot(x$depth, x$mean.resp, col=col1, type=type, pch=pch1,
+     plot(x=x$depth, y=x$mean.resp, col=col[1], type=type, pch=pch[1],
           xlab=xlab,
           ylab=ylab,yaxt="n",
-          main=main)
-     axt<-axTicks(2)
-     axis(side=2,at=axt,labels=paste(axt*100,"%",sep=""))
-     points(x$depth, x$cume.mean.resp, col=col2, type=type, pch=pch2)
-     legend("topright",legend=c(leg1,leg2),
-          col=c(col1,col2),lty=c(lty1,lty2))
+          ylim=ylim,
+          main=main, ...)
+       yaxt <- axTicks(2)
+     axis(side=2,at=yaxt,labels=paste(yaxt*100,"%",sep=""))
+     points(x$depth, x$cume.mean.resp, col=col[2], type=type, pch=pch[2])
+     points(x$depth, x$mean.prediction, col=col[3], type=type, pch=pch[3])
+     legend("topright",legend=legend, col=col, pch=pch, lty=lty)
    } else
    {
-     plot(x$depth, x$mean.resp, col=col1, type=type, pch=pch1,
+     plot(x=x$depth, y=x$mean.resp, col=col[1], type=type, pch=pch[1],
           xlab=xlab,
           ylab=ylab,
-          main=main)
-     points(x$depth, x$cume.mean.resp, col=col2, type=type, pch=pch2)
-     legend("topright",legend=c(leg1,leg2),
-          col=c(col1,col2),lty=c(lty1,lty2))
+          ylim=ylim,
+          main=main, ...)
+     points(x$depth, x$cume.mean.resp, col=col[2], type=type, pch=pch[2])
+     points(x$depth, x$mean.prediction, col=col[3], type=type, pch=pch[3])
+     legend("topright",legend=legend, col=col, pch=pch, lty=lty)
    }
 }
