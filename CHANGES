@@ -1,3 +1,4 @@
  0.1-0  CAR 2013-05-01 package initially created and uploaded to CRAN
- 1.0-0  CAR 2013-07-15 *changes made prior to JSM presentation*
+ 1.0-0  CAR 2013-07-15 added prediction series to plot, changed argument names to avoid ambiguity
+ 1.1    CAR 2013-07-25 simplified version number, changed dependency to R 3.0-0
 
